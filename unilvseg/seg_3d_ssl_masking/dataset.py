@@ -74,9 +74,7 @@ class Seg3DSSLMaskingDataset(EchoDataset):
         # Create a masked video
         mvideo    = video.copy()
         n_masks   = int(video.shape[0] * self.mask_ratio + 0.5)
-        masks_ids = np.sort(np.random.choice(mvideo.shape[0],
-                                             (mvideo.shape[0] - n_masks),
-                                             replace=False))
+        masks_ids = np.sort(np.random.choice(mvideo.shape[0], n_masks, replace=False))
         mvideo[masks_ids] = 0
         
         # Preprocessing

@@ -2,10 +2,21 @@ import os
 import cv2
 import collections
 import numpy as np
+import random
+import torch
+
+def set_seed(seed):
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
 
 def defaultdict_of_lists():
     """Returns a defaultdict of lists.
-    
+
     This is used to avoid issues with Windows (if this function is anonymous,
     the Echo dataset cannot be used in a dataloader).
     """
