@@ -10,11 +10,82 @@ Official implementation of the paper "UniLVSeg".
 >
 
 ### Methodology
-![methodology](https://github.com/fadamsyah/UniLVSeg/blob/main/assets/img_General_Architecture.pdf)
+![methodology](https://github.com/fadamsyah/UniLVSeg/blob/main/assets/img_General_Architecture.png)
 
 ### Main Result
-![SOTA-comparison](https://github.com/fadamsyah/UniLVSeg/blob/main/assets/img_SOTA_comparisons.pdf)
+![SOTA-comparison](https://github.com/fadamsyah/UniLVSeg/blob/main/assets/img_SOTA_comparisons.png)
 ![main-table](https://github.com/fadamsyah/UniLVSeg/blob/main/assets/main_table.png)
+
+## Run UniLVSeg
+
+To run this repository, you have to download the EchoNet-Dynamic original dataset.
+
+### Installation
+```bash
+# Create a conda environment
+conda env create -n hc701_fp python=3.8.13 -f environment.yml
+```
+
+### Training
+
+The following is the bash script for the self-supervised pretraining with temporal asking. To use a pretrained weight, you have to include an additional argument `--checkpoint`.
+```bash
+python seg_3d_masking_train.py \
+    --data_path $echonet_dynamic_data_dir \
+    --mean 0.12741163 0.1279413 0.12912785 \
+    --std 0.19557191 0.19562256 0.1965878 \
+    --encoder "3d_unet" \
+    --frames 32 \
+    --period 1 \
+    --mask_ratio 0.6 \
+    --num_workers 8 \
+    --batch_size 2 \
+    --epochs 100  \
+    --val_check_interval 0.5 \
+    --seed 42
+```
+
+The following is the bash script for the weakly-supervised LV segmentation training pipeline. To use a pretrained weight, you have to include an additional argument `--checkpoint`.
+```bash
+python seg_3d_train.py \
+    --data_path $echonet_dynamic_data_dir \
+    --mean 0.12741163 0.1279413 0.12912785 \
+    --std 0.19557191 0.19562256 0.1965878 \
+    --encoder "3d_unet" \
+    --frames 32 \
+    --period 1 \
+    --num_workers 8 \
+    --batch_size 16 \
+    --epochs 60  \
+    --val_check_interval 0.25 \
+    --seed 42
+```
+
+### Testing
+
+To do the testing and get the CI of your models, you have to first generate the prediction using the following:
+```bash
+python seg_3d_test_get_predictions.py \
+    --data_path $echonet_dynamic_data_dir \
+    --checkpoint $path_to_your_model_weights \
+    --save_dir $prediction_outputs_dir \
+    --mean 0.12741163 0.1279413 0.12912785 \
+    --std 0.19557191 0.19562256 0.1965878 \
+    --encoder "3d_unet" \
+    --frames 32 \
+    --period 1 \
+    --num_workers 4 \
+    --batch_size 16 \
+    --seed 42
+```
+
+Then, run the following code to get the CI for overall, ED, and ES DSC.
+```bash
+python evaluate_bootstrap.py \
+    --data_dir $echonet_dynamic_data_dir \
+    --prediction_dir $prediction_outputs_dir \
+    --output_dir $evaluation_result_dir \
+```
 
 ## Citation
 If you find this repository useful, please consider citing this work:
