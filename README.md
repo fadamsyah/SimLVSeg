@@ -1,5 +1,7 @@
 # UniLVSeg: Unified Left Ventricular Segmentation with Sparsely Annotated Echocardiogram Videos through Self-Supervised Temporal Masking and Weakly Supervised Training
 
+[Fadillah Adamsyah Maani](https://scholar.google.com/citations?user=W-4975wAAAAJ&hl=en), [Asim Ukaye](https://www.linkedin.com/in/asim-ukaye-2070a73a/), [Nada Saadi](https://www.linkedin.com/in/nada-saadi-440632179/), [Numan Saeed](https://scholar.google.ae/citations?user=VMPEU20AAAAJ&hl=en), [Mohammad Yaqub](https://scholar.google.co.uk/citations?user=9dfn5GkAAAAJ&hl=en)
+
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2310.00454)
 
 Official implementation of the paper "UniLVSeg".
@@ -86,6 +88,15 @@ python evaluate_bootstrap.py \
     --prediction_dir $prediction_outputs_dir \
     --output_dir $evaluation_result_dir \
 ```
+
+## Pretrained Weights
+
+We provide training log, best model checkpoint (according to Val DSC), and model checkpoint at the last epoch.
+
+| Model      | SSL      | #Frame | Period | Checkpoint       |
+|------------|----------|----------|--------|---------------|
+| 3D | ❌ | 32       | 1     | [link](https://drive.google.com/drive/folders/1-NXFFJEX4ieIm8TxPPz5YiFEmglb599N?usp=sharing) |
+| 3D | ✔️ | 32       | 1     | [link](https://drive.google.com/drive/folders/1yLD1iqFk0qLb1YWtqVrnYw_23RpYxV0W?usp=sharing) |
 
 ## Citation
 If you find this repository useful, please consider citing this work:
