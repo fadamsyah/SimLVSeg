@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 from unilvseg.utils import set_seed
-from unilvseg.seg_3d.dataset import Seg3DDataset
+from unilvseg.seg_3d.dataset import Seg3DDatasetTest
 from unilvseg.seg_3d.pl_module import Seg3DModule
 from unilvseg.seg_3d.preprocessing import get_preprocessing_for_training
 
@@ -32,6 +32,7 @@ def parse_args():
     parser.add_argument('--period', type=int, default=1, help="Period")
     
     # DataLoader arguments
+    parser.add_argument('--shuffle_temporal_order', action='store_true')
     parser.add_argument('--num_workers', type=int, default=8, help="Number of workers for data loading")
     parser.add_argument('--batch_size', type=int, default=16, help="Batch size for training and validation")
 
@@ -56,7 +57,7 @@ if __name__ == '__main__':
         args.std,
     )
 
-    test_dataset = Seg3DDataset(
+    test_dataset = Seg3DDatasetTest(
         args.data_path,
         "test",
         args.frames,
@@ -65,6 +66,7 @@ if __name__ == '__main__':
         preprocessing,
         None,
         test=True,
+        shuffle_temporal_order=args.shuffle_temporal_order,
     )
 
     test_dataloader = DataLoader(
