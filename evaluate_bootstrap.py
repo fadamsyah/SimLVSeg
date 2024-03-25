@@ -17,7 +17,7 @@ import torchvision
 import cv2
 import pandas
 
-from unilvseg.utils import defaultdict_of_lists
+from simlvseg.utils import defaultdict_of_lists
 
 
 class Echo(torchvision.datasets.VisionDataset):

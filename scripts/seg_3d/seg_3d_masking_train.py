@@ -12,11 +12,11 @@ import torch
 
 from torch.utils.data import DataLoader
 
-from unilvseg.augmentation import get_augmentation
-from unilvseg.utils import set_seed
-from unilvseg.seg_3d_ssl_masking.dataset import Seg3DSSLMaskingDataset
-from unilvseg.seg_3d_ssl_masking.pl_module import Seg3DSSLMaskingModule
-from unilvseg.seg_3d.preprocessing import get_preprocessing_for_training
+from simlvseg.augmentation import get_augmentation
+from simlvseg.utils import set_seed
+from simlvseg.seg_3d_ssl_masking.dataset import Seg3DSSLMaskingDataset
+from simlvseg.seg_3d_ssl_masking.pl_module import Seg3DSSLMaskingModule
+from simlvseg.seg_3d.preprocessing import get_preprocessing_for_training
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Weakly Supervised Video Segmentation Training with 3D Models")

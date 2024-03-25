@@ -15,9 +15,9 @@ from tqdm import tqdm
 
 from torch.utils.data import DataLoader
 
-from unilvseg.utils import set_seed, load_video, save_video
-from unilvseg.seg_3d.pl_module import Seg3DModule
-from unilvseg.seg_3d.preprocessing import get_preprocessing_for_training
+from simlvseg.utils import set_seed, load_video, save_video
+from simlvseg.seg_3d.pl_module import Seg3DModule
+from simlvseg.seg_3d.preprocessing import get_preprocessing_for_training
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Weakly Supervised Video Segmentation Training with 3D Models")
