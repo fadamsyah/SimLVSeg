@@ -1,3 +1,9 @@
+import os
+import sys
+sys.path.append(
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, os.pardir)
+)
+
 import argparse
 import numpy as np
 import pytorch_lightning as pl
