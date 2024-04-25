@@ -106,6 +106,23 @@ python scripts/seg_3d/seg_3d_inference.py \
     --seed 42
 ```
 
+### CAMUS Out-of-distribution (OOD) Test
+You have to first download the preprocessed dataset [here](https://drive.google.com/drive/folders/1uir1SXZzC3Y68f8cL_Nj4drzI4snpzY0?usp=sharing).
+```bash
+python scripts/camus/seg_3d_test_get_predictions.py \
+  --data_path $camus_preprocessed_data_dir \
+  --checkpoint $path_to_your_model_weights \
+  --save_dir $prediction_outputs_dir \
+  --mean 0.12741163 0.1279413 0.12912785 \
+  --std 0.19557191 0.19562256 0.1965878 \
+  --encoder "3d_unet" \
+  --frames 32 \
+  --period 1 \
+  --num_workers 4 \
+  --batch_size 16 \
+  --seed 42
+```
+
 ## Pretrained Weights
 
 We provide training log, best model checkpoint (according to Val DSC), and model checkpoint at the last epoch.
