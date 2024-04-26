@@ -15,8 +15,14 @@ Official implementation of the paper "SimLVSeg".
 ![methodology](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/img_General_Architecture.png)
 
 ### Main Result
+
+| nnU-Net | SimLVSeg w/o SSL | SimLVSeg |
+| :------------- | :------------- | :------------- |
+| ![nnU-Net GIF](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_nnunet.gif) | ![SimLVSeg-NoSSL GIF](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_3d.gif) | ![SimLVSeg](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_3d_ssl.gif) |
+
 ![SOTA-comparison](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/img_SOTA_comparisons.png)
 ![main-table](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/main_table.png)
+![ood-table](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/ood.png)
 
 ## Run SimLVSeg
 
