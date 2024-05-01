@@ -12,17 +12,17 @@ Official implementation of the paper "SimLVSeg".
 >
 
 ### Methodology
-![methodology](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/img_General_Architecture.png)
+<img src="assets/img_General_Architecture.png" width="900">
 
 ### Main Result
 
 | nnU-Net | SimLVSeg w/o SSL | SimLVSeg |
 | :------------- | :------------- | :------------- |
-| ![nnU-Net GIF](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_nnunet.gif) | ![SimLVSeg-NoSSL GIF](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_3d.gif) | ![SimLVSeg](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/res_3d_ssl.gif) |
+| <img src="assets/res_nnunet.gif" width="250"> | <img src="assets/res_3d.gif" width="250"> | <img src="assets/res_3d_ssl.gif" width="250"> |
 
-![SOTA-comparison](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/img_SOTA_comparisons.png)
-![main-table](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/main_table.png)
-![ood-table](https://github.com/fadamsyah/SimLVSeg/blob/main/assets/ood.png)
+<img src="assets/img_SOTA_comparisons.png" width="750">
+<img src="assets/main_table.png" width="750">
+<img src="assets/ood.png" width="750">
 
 ## Run SimLVSeg
 
